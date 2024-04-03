@@ -279,6 +279,7 @@ section {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     z-index: 9997;
+    
   }
 
   .navbar ul {
@@ -286,9 +287,13 @@ section {
     inset: 0;
     padding: 50px 0 10px 0;
     margin: 0;
-    background: var(--color-secondary);
+    background: #6437df67;
     overflow-y: auto;
     transition: 0.3s;
+    /* border-top-left-radius: 50px; */
+    border-bottom-left-radius: 500px;
+    border-bottom-right-radius: 500px;
+
     z-index: 9998;
   }
 
@@ -313,7 +318,18 @@ section {
     margin-left: 5px;
   }
 
+  .navbar a:hover,
+  .navbar .active,
+  .navbar .active:focus,
+  .navbar li:hover>a {
+    color: #fff;
+  }
+
   
+  .navbar .dropdown>.dropdown-active,
+  .navbar .dropdown .dropdown>.dropdown-active {
+    display: block;
+  }
 
   .mobile-nav-show {
     color: rgba(255, 255, 255, 0.9);
@@ -335,6 +351,14 @@ section {
     z-index: 9999;
   }
 
+  .mobile-nav-active {
+    overflow: hidden;
+  }
+
+  .mobile-nav-active .navbar {
+    right: 0;
+  }
+
   .mobile-nav-active .navbar:before {
     content: "";
     position: fixed;
@@ -343,6 +367,7 @@ section {
     z-index: 9996;
   }
 }
+
 
 /*--------------------------------------------------------------
 # Hero Section
