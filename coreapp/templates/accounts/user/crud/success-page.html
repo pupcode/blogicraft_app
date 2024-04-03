@@ -1,0 +1,21 @@
+{% extends "./dashboard.html" %}
+{% load static %}
+
+{% block dashboard %}
+<section id="featured-blog" class='featured-blog' style="margin: 30px;" ></section>
+<div class="container">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Success!</h4>
+        <p>Operation completed Successfully!</p>
+        <hr>
+        <p class="mb-0">You'll be redirectedin a few seconds...... If you aren't redirected, kingly click <a href="{% url 'my-profile' %}">here</a></p>
+    </div>
+</div>
+
+<script>
+    setTimeout(function() {
+        window.location.href = "{% url 'my-profile' %}";
+    }, 3000); // Redirect after 3 seconds
+</script>
+
+{% endblock %}

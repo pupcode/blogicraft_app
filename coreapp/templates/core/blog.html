@@ -1,0 +1,126 @@
+{% load static %}
+<hr>
+
+  <!-- ======= Blog Section ======= -->
+  <section style="padding-top: 15px;" id="blog" class="blog">
+    <div class="container" data-aos="fade-up">
+      <div class="section-header">
+        <h2>Recent Blog Posts</h2>
+
+      </div>
+
+      <div style="margin-left: 10px; margin-right: 10px;" class="row g-5">
+
+        <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="row gy-5 posts-list">
+
+            {% for blog in recent_blogs %}
+              <div class="col-lg-4">
+                <article class="d-flex flex-column">
+                  <div class="post-content">
+                    <div  class="post-img">
+                      {% if blog.image1 %}
+                      <img  style="border-radius: 20px;" src="{{ blog.image1.url }}" alt="" class="img-fluid">
+                      {% endif %}
+                      
+                    </div>
+    
+                    <h2 class="title">
+                      <a href="{% url 'blog-details' blog.id %}">{{blog.title}}</a>
+                    </h2>
+    
+                    <div class="meta-top">
+                      <ul>
+                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">{{blog.user}}</a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{% url 'blog-details' blog.id %}"><time datetime="2022-01-01">{{blog.date_created}}</time></a></li>
+                      </ul>
+                    </div>
+    
+                    <div style="margin-left: 0px; margin-right: 10px;" class="content">
+                      <p>
+                        {{ blog.teaser}}
+                      </p>
+                    </div>
+                    <hr>
+                  
+                  <div class="read-more mt-auto d-flex justify-content-center">
+                    <a href="{% url 'blog-details' blog.id %}" style="font-size: 17px;">Read More <i class="bi bi-arrow-right"></i></a>
+                  </form>
+                    
+
+                  <div class="d-flex justify-content-center">
+                  </div>
+                </div>
+
+                </article>
+              </div><!-- End post list item -->
+              {% endfor %}
+          </div><!-- End blog posts list -->
+        </div>
+
+        {% comment %} <div class="col-4 d-none d-md-block" data-aos="fade-up" data-aos-delay="200">
+          <h4 style="margin: 10px; color: var(--color-default)" >Trending Blog Posts</h4>
+          <hr>
+          <div class="card">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="https://i.pinimg.com/564x/11/0c/da/110cda8b6642602023ce6495ba7720db.jpg" class="card-img" alt="Sample Image">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body d-flex align-items-center justify-content-start" style="height: 100%; " >
+                  <a href=""> <h5 style="color: var(--color-secondary)" class="card-title text-center">Sample Title</h6> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="https://i.pinimg.com/564x/11/0c/da/110cda8b6642602023ce6495ba7720db.jpg" class="card-img" alt="Sample Image">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body d-flex align-items-center justify-content-start" style="height: 100%;">
+                  <a href=""> <h5 class="card-title text-center">Sample Title</h6> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="https://i.pinimg.com/564x/11/0c/da/110cda8b6642602023ce6495ba7720db.jpg" class="card-img" alt="Sample Image">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body d-flex align-items-center justify-content-start" style="height: 100%;">
+                  <a href=""> <h5 class="card-title text-center">Sample Title</h6> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> {% endcomment %}
+      </div>
+
+    </div>
+  </section><!-- End Blog Section -->
+
+  <style>
+
+    /* Custom CSS */
+    .card{
+      margin: 10px;
+      border: 0px solid var(--color-primary);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .card-img {
+      width: 70px; /* Adjust image width as desired */
+      height: auto; /* Maintain aspect ratio */
+    }
+    .post-content {
+      background-color: #5483b32a;
+      padding: 20px;  /* Add some padding for spacing between content and border */
+      border-radius: 30px;
+    }
+  </style>

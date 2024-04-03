@@ -1,0 +1,92 @@
+{% extends "../dashboard.html" %}
+{% load static %}
+{% block dashboard %}
+
+<!-- ======= Blog Section ======= -->
+<section style="margin-top: 40px padding-top: 25px;" id="blog" class="blog">
+    <div style="margin-top: 40px" class="container" data-aos="fade-up">
+        <div style="margin-left: 5px; margin-right: 5px;" class="row g-5">
+            <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
+    
+                <div class="row gy-5 posts-list">
+        
+                  {% for blog in recent_blogs %}
+                  <div class="col-lg-4 post-card ">
+                    <article class="d-flex flex-column">
+                      <div class="post-content">
+                        <div  class="post-img">
+                          {% if blog.image1 %}
+                          <img  style="border-radius: 20px;" src="{{ blog.image1.url }}" alt="" class="img-fluid">
+                          {% endif %}
+                          
+                        </div>
+        
+                        <h2 class="title">
+                          <a href="{% url 'dash-blog-details' blog.id %}">{{blog.title}}</a>
+                        </h2>
+        
+                        <div class="meta-top ">
+                          <ul>
+                            <li  class="d-flex align-items-center"><i style="font-size: 13px;" class="bi bi-person"></i> <a style="font-size: 13px;" href="dash-blog-details">{{blog.user}}</a></li>
+                          <li  class="d-flex align-items-center"><i style="font-size: 13px;" class="bi bi-clock"></i> <a style="font-size: 13px;" href="{% url 'dash-blog-details' blog.id %}"><time datetime="2022-01-01">{{blog.date_created}}</time></a></li>
+                          </ul>
+                        </div>
+        
+                        <div style="margin-left: 0px; margin-right: 10px; font-size: 14px;" class="content d-flex justify-content-center">
+                          <p>
+                            {{ blog.teaser}}
+                          </p>
+                        </div>
+        
+                        <div class="read-more mt-auto d-flex justify-content-center">
+                          <a href="{% url 'dash-blog-details' blog.id %}">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </article>
+                  </div><!-- End post list item -->
+                  {% endfor %}
+                </div><!-- End blog posts list -->
+        
+                
+        
+              </div>
+        </div>
+    </div>
+
+</section>
+<style>
+        body {
+            /* Old browsers */
+            background-color: #d0e8ff; /* Fallback color if gradients are not supported */
+        
+            /* Modern browsers */
+            background: linear-gradient(to right, #d0e8ff 0%, #98c5ef 100%);
+        }
+      
+        /* Custom CSS */
+      .card{
+        margin: 10px;
+        border: 0px solid var(--color-primary);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .post-content {
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 20px;  /* Add some padding for spacing between content and border */
+
+        border-radius: 20px;
+        
+      }
+  
+      .card-img {
+        width: 80px; /* Adjust image width as desired */
+        height: auto; /* Maintain aspect ratio */
+      }
+
+      .card:hover{
+        filter: brightness(0.8);  /* Adjust value (0-1) for darkness */
+        transition: filter 0.3s ease-in-out;  /* Add transition for smoothness */
+      }
+</style>
+
+{% endblock %}

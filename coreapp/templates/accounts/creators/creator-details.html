@@ -1,0 +1,181 @@
+{% extends "../dashboard.html" %}
+{% load static %}
+{% block dashboard %}
+
+<section style='margin-top: 57px;' id="featured-blog" class="featured-blog">
+    <div class="container" data-aos="fade-up">
+        <div style="padding-bottom: 0px;" class="section-header">
+            <h2>{{ profile.first_name}} {{profile.last_name}}'s Profile</h2>
+        </div>
+    <!--Table-->
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div style="background-color: #5483b3" class="card-header text-white">
+                       
+                    </div>
+                    <div class="card-body ">
+                        <div class="row">
+                          {% if profile.user_img %}
+                              <img style="border-radius: 40px; width: 400px; height: 400px; object-fit: cover;"class="img-thumbnail" src="{{ profile.user_img.url }}" alt="">
+                          {% else %}
+                              <!-- Render your default image here -->
+                              <img style="border-radius: 40px; width: 400px; height: auto;" class="img-thumbnail" src="{% static 'img/user.png' %}" alt="">
+                          {% endif %}
+                            
+                            <div style="margin-top: 20px; margin-bottom: 20px;" class="col-md-8">
+                                <a style="margin-bottom: 15px; padding-left: 30px; border-radius:20px; padding-right: 30px; background-color: #5483b3" class="btn text-white btn-sm float"
+                                    href=""></a> <a style="padding-left: 30px; border-radius:20px; padding-right: 30px; background-color: #5483b3" class="btn text-white btn-sm float-end"
+                                    href=""></a>
+                                <hr>
+                                <div style="margin-bottom: 15px;" class="d-flex flex-column align-items-center table-row">
+                                    <h3>{{profile.first_name}} {{profile.other_names}} {{profile.last_name}}</h3>
+                                    <p>@{{profile.user.username}}</p>
+                                </div>
+
+                                <div style="margin-top: 20px;" class="d-flex flex-column align-items-center">
+                                    <p style="font-size: 14px; color: #5483b3; text-justify: justify;
+                                    text-align: justify;
+                                    text-align-last: center;">Bio {{profile.bio}}</p>
+                                </div>
+                                <div style="margin-top: 20px;" class="d-flex flex-column align-items-center">
+                                    <div class="social-links d-flex  mt-3">
+                                        <a href="{{profile.twitter_link}}" class="twitter"><i style="padding-left: 20px;
+                                            padding-right: 20px;" class="bi bi-twitter"></i></a>
+                                        <a href="{{profile.faceboook_link}}" class="facebook"><i style="padding-left: 20px;
+                                            padding-right: 20px;"  class="bi bi-facebook"></i></a>
+                                        <a href="{{profile.instagram_link}}" class="instagram"><i style="padding-left: 20px;
+                                            padding-right: 20px;"  class="bi bi-instagram"></i></a>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!--End Table-->
+
+    </div>
+</section>
+
+<!-- ======= Blog Section ======= -->
+<section style="padding-top: 15px;" id="blog" class="blog">
+  <div class="container" data-aos="fade-up">
+    <div class="section-header">
+      <h2>Posts</h2>
+
+    </div>
+
+    <div style="margin-left: 10px; margin-right: 10px;" class="row g-5">
+
+      <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
+
+        <div class="row gy-5 posts-list">
+          {% if blogs %}
+              {% for blog in blogs %}
+              <div class="col-lg-6">
+                <article class="d-flex flex-column">
+                  <div class="post-content">
+                    <div  class="post-img">
+                      {% if blog.image1 %}
+                      <img  style="border-radius: 20px;" src="{{ blog.image1.url }}" alt="" class="img-fluid">
+                      {% endif %}
+                      
+                    </div>
+    
+                    <h2 class="title">
+                      <a href="{% url 'blog-details' blog.id %}">{{blog.title}}</a>
+                    </h2>
+    
+                    <div class="meta-top">
+                      <ul>
+                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">{{blog.user}}</a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{% url 'blog-details' blog.id %}"><time datetime="2022-01-01">{{blog.date_created}}</time></a></li>
+                      </ul>
+                    </div>
+    
+                    <div style="margin-left: 0px; margin-right: 10px;" class="content">
+                      <p>
+                        {{ blog.teaser}}
+                      </p>
+                    </div>
+                    <hr>
+                  
+                  <div class="read-more mt-auto d-flex justify-content-center">
+                    <a href="{% url 'blog-details' blog.id %}" style="font-size: 17px;">Read More <i class="bi bi-arrow-right"></i></a>
+                  </form>
+                    
+
+                  <div class="d-flex justify-content-center">
+                  </div>
+                </div>
+
+                </article>
+              </div><!-- End post list item -->
+              {% endfor %}
+          {% else %}
+
+              <div class="col-lg-12">
+                <article class="d-flex flex-column">
+                  <div class="post-content">
+                    <div  class="post-img">
+                      <img  style="border-radius: 20px;" src="{% static 'img/banner1.png' %}" alt="" class="img-fluid">                    
+                    </div>
+    
+                    <h2 class="title">
+                      <a href="">No blog post yet.</a>
+                    </h2>
+                    <hr>
+                    <div style="margin-left: 0px; margin-right: 10px;" class="content">
+                      <p>
+                        Blogicraft
+                      </p>
+                    </div>
+                  </div>
+
+                </article>
+              </div><!-- End post list item -->
+          {% endif %}    
+
+
+          
+
+        </div><!-- End blog posts list -->
+
+        
+
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Blog Section -->
+  <style>
+    .card {
+        border: 1px solid #5483b3;  /* Adjust color and style as needed */
+      }
+    .table-row {
+        border-bottom: 1px solid #5483b3; /* Adjust border style and color as needed */
+    }
+    .social-links {
+        font-size: 2rem; /* Adjust font-size as needed */
+      }
+      .post-content {
+        background-color: #5483b32a;
+        padding: 20px;  /* Add some padding for spacing between content and border */
+        border-radius: 30px;
+      }
+</style>
+
+{% endblock dashboard %}

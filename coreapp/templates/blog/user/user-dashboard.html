@@ -1,0 +1,278 @@
+{% extends "../dashboard.html" %}
+{% load static %}
+{% block dashboard %}
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        {% comment %} <section style='margin-top: 30px;' id="featured-blog" class="featured-blog">
+            <div style="padding: 30px;" class="container" data-aos="fade-up">
+        
+               <div class="section-header">
+                <h2>Featured Blog Posts</h2>
+        
+              </div> 
+        
+              <div  class="row g-0" data-aos="fade-up" data-aos-delay="200">
+                <div style="border-radius: 30px; " class="col-xl-12 slides  position-relative">
+        
+                  <div class="slides-1 swiper">
+                    <div class="swiper-wrapper">
+        
+                        <div class="swiper-slide">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="item">
+                                  <h3 class="mb-3">Blog Post</h3>
+                                  <h4 class="mb-3">Tag line</h4>
+                                  <p>This is a placeholder text for a short description for the blog post. It will be replaced. Lorem Ipsum un poco loco  </p>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <img style="padding: 5px; border-radius: 10px;" src="https://i.pinimg.com/564x/05/f8/aa/05f8aa626e94b0ec3c3fc0d53ad18774.jpg" class="img-fluid" alt="Image">
+                              </div>
+                            </div>
+                          </div><!-- End swiper-slide -->
+                      
+                      <div class="swiper-slide">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="item">
+                              <h3 class="mb-3">Blog Post</h3>
+                              <h4 class="mb-3">Tag line</h4>
+                              <p>This is a placeholder text for a short description for the Blog Post. It will be replaced. Lorem Ipsum un poco loco  </p>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <img style="padding: 5px; border-radius: 10px;" src="https://i.pinimg.com/236x/bf/cd/55/bfcd551c8394775870de935ff31b6c8d.jpg" class="img-fluid" alt="Image">
+                          </div>
+                        </div>
+                      </div><!-- End swiper-slide -->
+                      
+                      <div class="swiper-slide">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="item">
+                              <h3 class="mb-3">Blog Post</h3>
+                              <h4 class="mb-3">Tag line</h4>
+                              <p>WThis is a placeholder text for a short description for the Blog Post. It will be replaced. Lorem Ipsum un poco loco </p>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <img style="padding: 5px; border-radius: 10px;" src="https://i.pinimg.com/564x/c7/83/a4/c783a47afe26f461100201a7e3c5d5f2.jpg" class="img-fluid" alt="Image">
+                          </div>
+                        </div>
+                      </div><!-- End swiper-slide -->
+                      
+        
+                    </div>
+                    <div class="swiper-pagination"></div>
+                  </div>
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+                </div>
+        
+              </div>
+        
+            </div>
+          </section> {% endcomment %}
+          <style>
+            hr.styled-hr {
+              border: 1px dashed #007bff; /* Blue dashed line */
+              border-radius: 5px; /* Add rounded corners */
+              margin: 0; /* Add some margin for spacing */
+            }
+            
+            /* Additional styling for text overlay */
+            .overlay h2 {
+              color: white;
+            }
+            .darken-image {
+              border-radius: 30px;
+              filter: brightness(0.5); /* Adjust value (0-1) for darkness */
+            }
+
+            .card-hover-effect {
+              transition: all 0.3s ease-in-out;  /* Transition for smooth effect */
+            }
+            
+            .card-hover-effect:hover .card-img-top {
+              filter: brightness(0.2);  /* Darken image on hover */
+              transition: filter 0.3s ease-in-out;  /* Add transition for smoothness */
+
+            }
+            
+            .post-card:hover .post-img img {
+              filter: brightness(0.5);  /* Adjust value (0-1) for darkness */
+              transition: filter 0.3s ease-in-out;  /* Add transition for smoothness */
+            }  
+          </style>
+
+          <!-- ======= Blog Section ======= -->
+          <section style="margin-top: 40px padding-top: 25px;" id="blog" class="blog">
+            <div style="margin-top: 40px" class="container" data-aos="fade-up">
+              <div class="section-header">
+                <h2 style="color: #052659;" >Recently Posted</h2>
+
+              </div>
+
+              <div style="margin-left: 5px; margin-right: 5px;" class="row g-5">
+
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+
+                  <div class="row gy-5 posts-list">
+
+                    {% for blog in recent_blogs %}
+                    <div class="col-lg-6 post-card ">
+                      <article class="d-flex flex-column">
+                        <div class="post-content">
+                          <div  class="post-img">
+                            {% if blog.image1 %}
+                            <img  style="border-radius: 20px;" src="{{ blog.image1.url }}" alt="" class="img-fluid">
+                            {% endif %}
+                            
+                          </div>
+
+                          <h2 class="title">
+                            <a href="{% url 'dash-blog-details' blog.id %}">{{blog.title}}</a>
+                          </h2>
+
+                          <div class="meta-top ">
+                            <ul>
+                              <li  class="d-flex align-items-center"><i style="font-size: 13px;" class="bi bi-person"></i> <a style="font-size: 13px;" href="">{{blog.user}}</a></li>
+                            <li  class="d-flex align-items-center"><i style="font-size: 13px;" class="bi bi-clock"></i> <a style="font-size: 13px;" href="{% url 'dash-blog-details' blog.id %}"><time datetime="2022-01-01">{{blog.date_created}}</time></a></li>
+                            </ul>
+                          </div>
+
+                          <div style="margin-left: 0px; margin-right: 10px; font-size: 14px;" class="content d-flex justify-content-center">
+                            <p>
+                              {{ blog.teaser}}
+                            </p>
+                          </div>
+
+                          <div class="read-more mt-auto d-flex justify-content-center">
+                            <a href="{% url 'dash-blog-details' blog.id %}">Read More <i class="bi bi-arrow-right"></i></a>
+                          </div>
+                        </div>
+                      </article>
+                    </div><!-- End post list item -->
+                    {% endfor %}
+                  </div><!-- End blog posts list -->
+
+                  
+
+                </div>
+                <div class="col-4" data-aos="fade-up" data-aos-delay="200">
+                  <h4 style="margin: 10px; color: var(--color-secondary)" class="d-none d-md-block" >Discover</h4>
+                  {% comment %} <hr> {% endcomment %}
+                  {% for blog in discover_blogs %}
+                  <div class="card d-none d-md-block">
+                    <div class="row no-gutters">
+                      <div class="col-md-4">
+                        <img src="{{ blog.image1.url }}" class="card-img" alt="Image">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body d-flex align-items-center justify-content-start" style="height: 100%; " >
+                          <a href="{% url 'dash-blog-details' blog.id %}"> <h5 style="font-size: 13px; color: var(--color-secondary)" class="card-title text-start">{{blog.title|truncatewords:10}}</h6> 
+                            <p style="font-size: 10px; color: gray; margin-bottom: 0px;">{{blog.teaser|truncatechars:40}}</p></a>
+
+                            
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                  <!--Tags for large screen-->
+                  <h4 class="d-none d-md-block" style="margin-top: 50px; margin-left: 10px; color: var(--color-secondary)" >Popular Tags</h4>
+                  <div class="d-none d-md-block ">
+                    <div class="tag-container">
+                      {% for tag in tags %}
+                      <div class="tag">
+                        <a href="{% url 'tag_filter' tag_id=tag.id %}" class="tag">{{ tag.name }}</a>   
+                    </div>
+                      {% endfor %}
+                  </div><!-- End tag-container -->  
+                  </div><!-- End sidebar tags-->
+                </div>
+
+                <!--Tags for mobile screen-->
+                <div class="col-12 d-lg-none" data-aos="fade-up" data-aos-delay="200">
+                  <h4 style="margin-top: 50px; margin-left: 10px; color: var(--color-secondary)" >Popular Tags</h4>
+                  {% comment %} <hr> {% endcomment %}
+                  <div class="tag-container">
+                    {% for tag in tags %}
+                    <div class="tag">
+                        <a href="{% url 'tag_filter' tag_id=tag.id %}" class="tag">{{ tag.name }}</a>   
+                    </div>
+                    {% endfor %}
+                </div><!-- End tag-container --> 
+                </div>
+
+              </div>
+
+            </div>
+
+            
+            <div class="container">
+              <hr class="styled-hr">
+            </div>
+            <div style="margin-top: 20px;" class="container" data-aos="fade-up">
+              <div class="section-header">
+                <h2 style="font-size: 25px; margin-top: 50px;"><a href="{% url 'more' %}"> Keep Reading.. <i class="bi bi-book"></i> </a></h2>
+              </div>
+            </div>
+          </section><!-- End Blog Section -->
+          <style>
+            body {
+                /* Old browsers */
+                background-color: #d0e8ff; /* Fallback color if gradients are not supported */
+            
+                /* Modern browsers */
+                background: linear-gradient(to right, #d0e8ff 0%, #98c5ef 100%);
+            }
+          
+            /* Custom CSS */
+          .card{
+            margin: 10px;
+            border: 0px solid var(--color-primary);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.53);
+          }
+
+          .post-content {
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 20px;  /* Add some padding for spacing between content and border */
+
+            border-radius: 20px;
+            
+          }
+      
+          .card-img {
+            width: 80px; /* Adjust image width as desired */
+            height: auto; /* Maintain aspect ratio */
+          }
+
+          .card:hover{
+            filter: brightness(0.8);  /* Adjust value (0-1) for darkness */
+            transition: filter 0.3s ease-in-out;  /* Add transition for smoothness */
+          }
+          .tag {
+            display: inline-block;
+            padding: 3px;
+            margin: 5px;
+            background-color: white;
+            border-radius: 50px; /* Adjust this value for oval shape */
+            text-decoration: none;
+            color: #333;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        .meta-top {
+          display: flex;
+          justify-content: center;
+      }
+        .tag:hover {
+            background-color: #ccc;
+        }
+        </style>
+{% endblock dashboard %}

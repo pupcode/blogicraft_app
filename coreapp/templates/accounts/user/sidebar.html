@@ -1,0 +1,142 @@
+{% load static %}
+<div class="sidebar">
+  <div class="logo">
+    <img src="{% static 'img/banner.png' %}" alt="Logo" />
+  </div>
+  <ul>
+    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="#"><i class="fas fa-user"></i> About</a></li>
+    <li><a href="#"><i class="fas fa-cogs"></i> Services</a></li>
+    <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+    <li><a href="#"><i class="fas fa-envelope"></i> Logout</a></li>
+
+  </ul>
+</div>
+
+<div class="content">
+  <button> ☰ Open Sidebar</button>
+</div>
+
+<div class="overlay" onclick="closeSidebar()"></div>
+
+ <style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .sidebar {
+    z-index: 9;
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    left: -250px;
+    top: 0;
+    background-color: #333;
+    padding-top: 60px;
+    transition: 0.5s;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+  }
+
+  .sidebar ul li {
+    padding: 15px;
+    transition: background-color 0.3s ease;
+    border-radius: 20px;
+    margin-bottom: 5px;
+    width: 100%; /* Make the list items full width */
+    text-align: center; /* Center text horizontally */
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+  }
+  .sidebar ul li a {
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar ul li a:hover {
+    background-color: #4CAF50;
+    padding: 20px; /* Increase padding */
+    border-radius: 50px;
+  }
+  
+  .sidebar ul li a:hover i {
+    color: #ffffff;
+  }
+  
+  .sidebar ul li a i {
+    margin-right: 10px;
+    color: #aaa;
+    transition: color 0.3s ease;
+  }
+  
+  .logo {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .logo img {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  
+  .content {
+    margin-left: 250px;
+    transition: margin-left 0.5s;
+  }
+  
+  .overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.5);
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+  
+  .open-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+  }
+  
+ </style>
+
+  <script>
+    function openSidebar() {
+      document.querySelector(".sidebar").style.left = "0";
+      document.querySelector(".overlay").style.width = "100%";
+    }
+    
+    function closeSidebar() {
+      document.querySelector(".sidebar").style.left = "-250px";
+      document.querySelector(".overlay").style.width = "0";
+    }
+    
+    document.querySelectorAll('.sidebar a').forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.stopPropagation();
+      });
+    });
+    
+    
+  </script>

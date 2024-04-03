@@ -1,0 +1,66 @@
+{% extends "../dashboard.html" %}
+{% load static %}
+{% block dashboard %}
+
+<section style='margin-top: 57px;' id="featured-blog" class="featured-blog">
+    <div class="container" data-aos="fade-up">
+        <div style="padding-bottom: 0px;" class="section-header">
+            <h2>Discover Creators</h2>
+        </div>
+    <!--Table-->
+    <div class="container">
+        <div class="row my-4">
+            {% for profile in profiles %}
+            <div class="col-md-4" style="margin-top: 10px;">
+                <div class="card">
+                    <div style="background-color: #5483b3" class="card-header text-white">
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                {% if profile.user_img %}
+                                    <img style="border-radius: 40px;" class="img-thumbnail" src="{{ profile.user_img.url }}" alt="">
+                                {% else %}
+                                    <img style="border-radius: 40px;" class="img-thumbnail" src="{% static 'img/user.png' %}" alt="">
+                                {% endif %}
+                            </div>                      
+                            <div style="margin-top: 5px; margin-bottom: 5px;" class="col-md-8">
+                                <div class="table-row">
+                                    <a style="margin-bottom: 15px; padding-left: 30px; border-radius: 20px; padding-right: 30px; background-color: #5483b3; width: 100%" class="btn btn-sm text-white float" href="{% url 'creator-profile' profile.user.username %}">View Profile</a>
+                                </div>
+                                <div style="margin-top: 5px; margin-bottom: 5px;" class="d-flex flex-column align-items-center">
+                                    <h3 style="margin-bottom: 0;">{{ profile.first_name }}</h3>
+                                    <p style="margin-top: 5px; margin-bottom: 0;">@{{ profile.user }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            {% endfor %}
+            
+
+        </div>
+
+    </div>
+
+
+
+    <!--End Table-->
+
+    </div>
+</section>
+
+
+<style>
+    .card {
+        border: 1px solid #5483b3;  /* Adjust color and style as needed */
+      }
+    .table-row {
+        border-bottom: 1px solid #5483b3; /* Adjust border style and color as needed */
+    }
+      
+</style>
+
+{% endblock dashboard %}

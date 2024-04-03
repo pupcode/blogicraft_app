@@ -1,0 +1,232 @@
+{% load static %}
+
+ <div class="container">
+  <div class="login-wrap" style="z-index:9999;">
+    <div class="login-html">
+      <label style="font-size: 22px; margin-bottom: 20px; color: white;" for="tab-2" class="tab">SIGN UP</label>
+      <div class="login-form">
+        <form action="" method="post">
+          {% csrf_token %}
+          <div style="margin-top: 20px;" class="sign-up-htm">
+            <div class="group">
+              <label for="user" class="label">USERNAME</label>
+              {{ form.username }}
+            </div>
+            <div class="group">
+              <label for="pass" class="label">PASSWORD</label>
+              {{ form.password1 }}
+            </div>
+            <div class="group">
+              <label for="pass" class="label">REPEAT PASSWORD</label>
+              {{ form.password2 }}
+            </div>
+            <div class="group">
+              <label for="pass" class="label">EMAIL ADDRESS</label>
+              {{ form.email }}
+            </div>
+            <div class="content">
+              <label>{{form.errors}}</label>
+              <div class="content">
+                  {% for message in messages %}
+                  <p id="messages"> {{message}}</p>
+                  {% endfor %}
+             </div>
+            <div class="hr"></div>
+
+            <div class="group">
+              <input name='Create User' type="submit" class="button" value="Sign Up">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <style>
+  body{
+    margin:0;
+    color:#6a6f8c;
+    background:#052659;
+    font:600 16px/18px 'Open Sans',sans-serif;
+  }
+  *,:after,:before{box-sizing:border-box}
+  .clearfix:after,.clearfix:before{content:'';display:table}
+  .clearfix:after{clear:both;display:block}
+  a{color:inherit;text-decoration:none}
+  input[type="text"] {
+    width: 100%;
+    color: #fff;
+    display: block;
+    border: none;
+    margin: 10px;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+}
+input[type="password"] {
+  width: 100%;
+  color: #fff;
+  display: block;
+  border: none;
+  margin: 10px;
+  padding: 15px 20px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+}
+input[type="email"] {
+  width: 100%;
+  color: #fff;
+  display: block;
+  border: none;
+  margin: 10px;
+  padding: 15px 20px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+}
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust as needed */
+  }
+  .login-wrap {
+    width: 50%;
+    height: auto;
+    position: relative;
+    background: rgba(14, 65, 102, 0.86);
+    padding: 90px 70px 50px 70px;
+    border-radius: 70px;
+  }
+  .login-form {
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+  .group {
+    margin-bottom: 15px;
+  }
+  .group .label {
+    color: #aaa;
+    font-size: 12px;
+  }
+  .group .input, .group .button {
+    width: 100%;
+    color: #fff;
+    display: block;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .group .button {
+    background: #1161ee;
+    cursor: pointer;
+  }
+  .group label .icon {
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    position: relative;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .group label .icon:before, .group label .icon:after {
+    content: '';
+    width: 10px;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    transition: all .2s ease-in-out 0s;
+  }
+  .group label .icon:before {
+    left: 3px;
+    width: 5px;
+    bottom: 6px;
+    transform: scale(0) rotate(0);
+  }
+  .group label .icon:after {
+    top: 6px;
+    right: 0;
+    transform: scale(0) rotate(0);
+  }
+  .content {
+    color: #fff;
+  }
+  .content p {
+    margin: 0;
+  }
+  .login-html .sign-up-htm {
+    transform: rotate(0);
+  }
+  .hr{
+    height:2px;
+    margin:60px 0 50px 0;
+    background:rgba(255,255,255,.2);
+  }
+  svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+    width: 100%;
+    height: 100%;
+		box-sizing: border-box;
+		display: block;
+		background-color: #0e4166;
+    background-image: linear-gradient(to bottom, rgba(14, 65, 102, 0.86), #0e4166);
+	}
+</style>
+
+
+ <footer>
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+		xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+		<defs>
+			<linearGradient id="bg">
+				<stop offset="0%" style="stop-color:rgba(130, 158, 249, 0.06)"></stop>
+				<stop offset="50%" style="stop-color:rgba(76, 190, 255, 0.6)"></stop>
+				<stop offset="100%" style="stop-color:rgba(115, 209, 72, 0.2)"></stop>
+			</linearGradient>
+			<path id="wave" fill="url(#bg)" d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
+	s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z" />
+		</defs>
+		<g>
+			<use xlink:href='#wave' opacity=".3">
+				<animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="translate"
+          dur="10s"
+          calcMode="spline"
+          values="270 230; -334 180; 270 230"
+          keyTimes="0; .5; 1"
+          keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+          repeatCount="indefinite" />
+			</use>
+			<use xlink:href='#wave' opacity=".6">
+				<animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="translate"
+          dur="8s"
+          calcMode="spline"
+          values="-270 230;243 220;-270 230"
+          keyTimes="0; .6; 1"
+          keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+          repeatCount="indefinite" />
+			</use>
+			<use xlink:href='#wave' opacty=".9">
+				<animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="translate"
+          dur="6s"
+          calcMode="spline"
+          values="0 230;-140 200;0 230"
+          keyTimes="0; .4; 1"
+          keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+          repeatCount="indefinite" />
+			</use>
+		</g>
+	</svg>
+ </footer>

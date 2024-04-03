@@ -1,0 +1,234 @@
+{% extends "../dashboard.html" %}
+{% load static %}
+{% block dashboard %}
+
+<section style='margin-top: 57px;' id="featured-blog" class="featured-blog">
+    <div class="container" data-aos="fade-up">
+        <div style="padding-bottom: 0px;" class="section-header">
+            <h2>Profile Page</h2>
+        </div>
+    <!--Table-->
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div style="background-color: #5483b3" class="card-header text-white">
+                       
+                    </div>
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img style="border-radius: 40px;" class="img-thumbnail" src="https://i.pinimg.com/564x/05/f8/aa/05f8aa626e94b0ec3c3fc0d53ad18774.jpg" alt="">
+                            </div>
+                            
+                            <div style="margin-top: 10px;" class="col-md-8">
+                                <a style="padding-left: 30px; border-radius:20px; padding-right: 30px; background-color: #5483b3" class="btn text-white btn-sm float"
+                                    href="">Ping Creator</a> 
+                                    {% comment %} <a style="padding-left: 30px; border-radius:20px; padding-right: 30px; background-color: #5483b3" class="btn text-white btn-sm float-end"
+                                    href="">Edit</a> {% endcomment %}
+                                <hr>
+                                <div class="d-flex flex-column align-items-center table-row">
+                                    <h3>Cyril Banks Kwesi</h3>
+                                    <p>@username</p>
+                                </div>
+
+                                <div style="margin-top: 20px;" class="d-flex flex-column align-items-center">
+                                    <p style="font-size: 14px; color: #5483b3; text-justify: justify;
+                                    text-align: justify;
+                                    text-align-last: center;">Bio The second method using .text-center only works for elements with inline or inline-block display by default. If your div has a different display type (e.g., block), it might not work as expected. In such cases, you'd need to use the first method with flexbox or alternative approaches like setting line-height equal to the parent element's height.</p>
+                                </div>
+                                <div style="margin-top: 20px;" class="d-flex flex-column align-items-center">
+                                    <div class="social-links d-flex  mt-3">
+                                        <a href="#" class="twitter"><i style="padding-left: 20px;
+                                            padding-right: 20px;" class="bi bi-twitter"></i></a>
+                                        <a href="" class="facebook"><i style="padding-left: 20px;
+                                            padding-right: 20px;"  class="bi bi-facebook"></i></a>
+                                        <a href="" class="instagram"><i style="padding-left: 20px;
+                                            padding-right: 20px;"  class="bi bi-instagram"></i></a>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!--End Table-->
+
+    </div>
+</section>
+
+<!-- ======= Blog Section ======= -->
+<section style="padding-top: 15px;" id="blog" class="blog">
+    <div class="container" data-aos="fade-up">
+      <div class="section-header">
+        <h2>User's Blog Posts</h2>
+
+      </div>
+
+      <div style="margin-left: 10px; margin-right: 10px;" class="row g-5">
+
+        <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="row gy-5 posts-list">
+
+            <div class="col-lg-6">
+              <article class="d-flex flex-column">
+
+                <div  class="post-img">
+                  <img  style="border-radius: 20px;" src="https://i.pinimg.com/564x/05/f8/aa/05f8aa626e94b0ec3c3fc0d53ad18774.jpg" alt="" class="img-fluid">
+                </div>
+
+                <h2 class="title">
+                  <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</a>
+                </h2>
+
+                <div class="meta-top">
+                  <ul>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
+                  </ul>
+                </div>
+
+                <div style="margin-left: 0px; margin-right: 10px;" class="content">
+                  <p>
+                    Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
+                  </p>
+                </div>
+
+                <div class="read-more mt-auto align-self-center">
+                  <a href="blog-details.html">Read More <i class="bi bi-arrow-right"></i></a>
+                </div>
+
+              </article>
+            </div><!-- End post list item -->
+
+            <div class="col-lg-6">
+              <article class="d-flex flex-column">
+
+                <div  class="post-img">
+                  <img  style="border-radius: 20px;" src="https://i.pinimg.com/564x/05/f8/aa/05f8aa626e94b0ec3c3fc0d53ad18774.jpg" alt="" class="img-fluid">
+                </div>
+
+                <h2 class="title">
+                  <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>
+                </h2>
+
+                <div class="meta-top">
+                  <ul>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
+                  </ul>
+                </div>
+
+                <div style="margin-left: 0px; margin-right: 10px;" class="content">
+                  <p>
+                    Incidunt voluptate sit temporibus aperiam. Quia vitae aut sint ullam quis illum voluptatum et. Quo libero rerum voluptatem pariatur nam.
+                  </p>
+                </div>
+
+                <div class="read-more mt-auto align-self-center">
+                  <a href="blog-details.html">Read More <i class="bi bi-arrow-right"></i></a>
+                </div>
+
+              </article>
+            </div><!-- End post list item -->
+
+            <div class="col-lg-6">
+              <article class="d-flex flex-column">
+
+                <div  class="post-img">
+                  <img  style="border-radius: 20px;" src="https://i.pinimg.com/564x/05/f8/aa/05f8aa626e94b0ec3c3fc0d53ad18774.jpg" alt="" class="img-fluid">
+                </div>
+
+                <h2 class="title">
+                  <a href="blog-details.html">Possimus soluta ut id suscipit ea ut. In quo quia et soluta libero sit sint.</a>
+                </h2>
+
+                <div class="meta-top">
+                  <ul>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
+                  </ul>
+                </div>
+
+                <div style="margin-left: 0px; margin-right: 10px;" class="content">
+                  <p>
+                    Aut iste neque ut illum qui perspiciatis similique recusandae non. Fugit autem dolorem labore omnis et. Eum temporibus fugiat voluptate enim tenetur sunt omnis.
+                  </p>
+                </div>
+
+                <div class="read-more mt-auto align-self-center">
+                  <a href="blog-details.html">Read More <i class="bi bi-arrow-right"></i></a>
+                </div>
+
+              </article>
+            </div><!-- End post list item -->
+
+            <div class="col-lg-6">
+              <article class="d-flex flex-column">
+
+                <div  class="post-img">
+                  <img  style="border-radius: 20px;" src="https://i.pinimg.com/564x/05/f8/aa/05f8aa626e94b0ec3c3fc0d53ad18774.jpg" alt="" class="img-fluid">
+                </div>
+
+                <h2 class="title">
+                  <a href="blog-details.html">Non rem rerum nam cum quo minus. Dolor distinctio deleniti explicabo eius exercitationem.</a>
+                </h2>
+
+                <div class="meta-top">
+                  <ul>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
+                  </ul>
+                </div>
+
+                <div style="margin-left: 0px; margin-right: 10px;" class="content">
+                  <p>
+                    Aspernatur rerum perferendis et sint. Voluptates cupiditate voluptas atque quae. Rem veritatis rerum enim et autem. Saepe atque cum eligendi eaque iste omnis a qui.
+                  </p>
+                </div>
+
+                <div class="read-more mt-auto align-self-center">
+                  <a href="blog-details.html">Read More <i class="bi bi-arrow-right"></i></a>
+                </div>
+
+              </article>
+            </div><!-- End post list item -->
+
+            
+
+          </div><!-- End blog posts list -->
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Blog Section -->
+  <style>
+    .card {
+        border: 1px solid #5483b3;  /* Adjust color and style as needed */
+      }
+    .table-row {
+        border-bottom: 1px solid #5483b3; /* Adjust border style and color as needed */
+    }
+    .social-links {
+        font-size: 2rem; /* Adjust font-size as needed */
+      }
+      
+</style>
+
+{% endblock dashboard %}

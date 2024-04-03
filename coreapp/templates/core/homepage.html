@@ -1,0 +1,31 @@
+{% extends "core/index.html" %}
+{% load static %}
+
+{% block content %}
+<section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div style="padding: 30px;" class="col-xl-4">
+          <h2 data-aos="fade-up">Welcome to.. </h2>
+          <blockquote data-aos="fade-up" data-aos-delay="100">
+            <p>BlogiCraft, a blog website featuring insightful articles, thought-provoking content, and engaging discussions on various topics. </p>
+          </blockquote>
+          <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+            {% comment %} <a href="#why-us" class="btn-get-started">Get Started</a> {% endcomment %}
+            <a href="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Ffaithagnungua%2Fvideos%2F965984168478677%2F&show_text=false&width=560&t=0" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>About Us</span></a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+
+    <div id="blog">
+      {% include "core/blog.html" %}
+    </div>
+    
+
+  </main><!-- End #main -->
+{% endblock content %}
